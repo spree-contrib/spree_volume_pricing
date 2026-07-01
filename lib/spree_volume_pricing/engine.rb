@@ -5,7 +5,11 @@ module SpreeVolumePricing
     engine_name 'spree_volume_pricing'
 
     initializer 'spree_volume_pricing.preferences', before: 'spree.environment' do
-      Spree::AppConfiguration.class_eval do
+      # Spree 4.5 renamed Spree::AppConfiguration to Spree::Core::Configuration.
+      # Prefer the old name when present so this branch keeps working across the
+      # whole 4.x line (4.3/4.4 still expose AppConfiguration; 4.5+ only Core::Configuration).
+      preferences_class = defined?(Spree::AppConfiguration) ? Spree::AppConfiguration : Spree::Core::Configuration
+      preferences_class.class_eval do
         preference :use_master_variant_volume_pricing, :boolean, default: false
         preference :volume_pricing_role, :string, default: 'wholesale'
         preference :volume_pricing_role_dropship, :string, default: 'dropship'
