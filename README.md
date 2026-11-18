@@ -1,3 +1,6 @@
+> [!WARNING]  
+> [Volume Pricing, quantity breaks](https://spreecommerce.org/docs/developer/core-concepts/pricing), and [Catalogs](https://spreecommerce.org/docs/developer/core-concepts/catalogs) are now part of Spree core. This extension is not needed anymore.
+
 # Volume Pricing
 
 [![Build Status](https://travis-ci.com/spree-contrib/spree_volume_pricing.svg?branch=master)](https://travis-ci.com/spree-contrib/spree_volume_pricing)
